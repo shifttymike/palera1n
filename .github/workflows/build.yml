@@ -773,13 +773,8 @@ jobs:
 
       - name: Upload artifact
         if: ${{ github.event_name != 'pull_request' }}
-        uses: wangyucode/sftp-upload-action@v1.4.8
+        uses: actions/upload-artifact@v3
         with:
-          host: ${{ secrets.NICKCHAN_FTP_HOST }}
-          port: ${{ secrets.NICKCHAN_FTP_PORT }}
-          username: palera1n
-          privateKey: ${{ secrets.NICKCHAN_FTP_KEY }}
-          forceUpload: true
-          dryRun: false
-          localDir: 'ready/'
-          remoteDir: '/palera1n/artifacts/c-rewrite'
+          name: 'palera1n'
+          path: 'ready/*'
+          retention-days: 1
