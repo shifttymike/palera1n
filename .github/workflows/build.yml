@@ -425,7 +425,6 @@ jobs:
           rm -rf stage
 
       - name: Upload artifact
-        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v3
         with:
           name: 'palera1n'
